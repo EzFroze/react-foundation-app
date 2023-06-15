@@ -5,12 +5,9 @@
 
 .app {
   font: var(--font-main);
-
   background: var(--bg-color);
   color: var(--primary-color);
-
   min-height: 100vh;
-
   transition: background-color 200ms ease-in-out;
 }
 
