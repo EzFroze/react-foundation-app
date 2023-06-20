@@ -20,11 +20,11 @@ export const Button: FC<ButtonProps> = (
   }
 ) => {
   return (
-        <button
-          className={classNames(styles.Button, {}, [className, styles[theme]])}
-          {...btnProps}
-        >
-          {children}
-        </button>
+    <button
+      className={classNames(styles.Button, {}, [className, styles[theme]])}
+      {...btnProps}
+    >
+      {children}
+    </button>
   )
 }

@@ -19,10 +19,12 @@ module.exports = {
     'i18next'
   ],
   rules: {
+    indent: ['error', 2],
+    'react/jsx-indent': ['error', 2],
     'react/react-in-jsx-scope': 'off',
     '@typescript-eslint/no-floating-promises': 'off',
     '@typescript-eslint/explicit-function-return-type': 'off',
     '@typescript-eslint/strict-boolean-expressions': 'off',
-    'i18next/no-literal-string': [2, { markupOnly: true }]
+    'i18next/no-literal-string': [2, { onlyAttribute: [''] }]
   }
 }

@@ -1,4 +1,8 @@
 {
   "pageMain": "Main page",
-  "language": "English"
+  "language": "English",
+  "pageNotFound": "Page not found",
+  "toggle": "Toggle",
+  "toMainPage": "Main",
+  "toAboutPage": "About"
 }

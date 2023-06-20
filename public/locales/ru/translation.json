@@ -1,4 +1,8 @@
 {
   "pageMain": "Главная страница",
-  "language": "Русский"
+  "language": "Русский",
+  "pageNotFound": "Страница не найдена",
+  "toggle": "Toggle",
+  "toMainPage": "Главная",
+  "toAboutPage": "О сайте"
 }
