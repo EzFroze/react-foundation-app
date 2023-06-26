@@ -4,5 +4,7 @@
   "pageNotFound": "Страница не найдена",
   "toggle": "Toggle",
   "toMainPage": "Главная",
-  "toAboutPage": "О сайте"
+  "toAboutPage": "О сайте",
+  "PageError": "Произошла непредвиденная ошибка",
+  "ReloadPage": "Обновить страницу"
 }

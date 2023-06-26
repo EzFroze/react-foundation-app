@@ -4,5 +4,7 @@
   "pageNotFound": "Page not found",
   "toggle": "Toggle",
   "toMainPage": "Main",
-  "toAboutPage": "About"
+  "toAboutPage": "About",
+  "PageError": "Page error",
+  "ReloadPage": "Reload Page"
 }

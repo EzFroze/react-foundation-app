@@ -2,7 +2,7 @@ import { type RuleSetRule } from 'webpack'
 import MiniCssExtractPlugin from 'mini-css-extract-plugin'
 import { type BuildOptions } from './types/config'
 
-export function buildLoaders ({ isDev }: BuildOptions): RuleSetRule[] {
+export function buildLoaders({ isDev }: BuildOptions): RuleSetRule[] {
   const babelLoader = {
     test: /\.(js|ts|jsx|tsx)$/,
     exclude: /node_modules/,
