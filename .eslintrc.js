@@ -31,5 +31,13 @@ module.exports = {
       asyncArrow: 'always'
     }],
     'i18next/no-literal-string': [2, { onlyAttribute: [''] }]
-  }
+  },
+  overrides: [
+    {
+      files: ['**/src/**/*.test.{ts,tsx}'],
+      rules: {
+        'i18next/no-literal-string': 'off'
+      }
+    }
+  ]
 }
