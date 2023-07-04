@@ -3,10 +3,10 @@ import path from 'path'
 export default {
   clearMocks: true,
   testEnvironment: 'jsdom',
+  rootDir: '../../',
   testMatch: [
     '<rootDir>src/**/*(*.)@(spec|test).[tj]s?(x)'
   ],
-  rootDir: '../../',
   coveragePathIgnorePatterns: [
     '/node_modules/'
   ],

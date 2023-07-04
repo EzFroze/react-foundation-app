@@ -21,8 +21,10 @@
     }
   },
   "include": [
-    "./config/jest/setupTests.ts",
+    "./config/**/*.ts",
+    "./config/**/*.tsx",
     "./src/**/*.ts",
     "./src/**/*.tsx",
+    "./webpack.config.ts",
   ]
 }
