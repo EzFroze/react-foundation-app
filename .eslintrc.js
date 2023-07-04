@@ -19,6 +19,8 @@ module.exports = {
     'i18next'
   ],
   rules: {
+    semi: [2, 'always'],
+    '@typescript-eslint/semi': [2, 'always'],
     indent: ['error', 2],
     'react/jsx-indent': ['error', 2],
     'react/react-in-jsx-scope': 'off',
@@ -40,4 +42,4 @@ module.exports = {
       }
     }
   ]
-}
+};
