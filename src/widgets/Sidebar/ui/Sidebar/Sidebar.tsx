@@ -7,6 +7,7 @@ import { Button } from 'shared/ui/Button/Button';
 import { useTranslation } from 'react-i18next';
 
 interface SidebarProps {
+  /** Дополнительный класс на корневой элемент */
   className?: string
 }
 

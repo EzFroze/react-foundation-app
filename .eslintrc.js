@@ -4,20 +4,13 @@ module.exports = {
     es2021: true,
     jest: true
   },
-  extends: [
-    'standard-with-typescript',
-    'plugin:react/recommended',
-    'plugin:i18next/recommended'
-  ],
+  extends: ['standard-with-typescript', 'plugin:react/recommended', 'plugin:i18next/recommended', 'plugin:storybook/recommended'],
   parserOptions: {
     ecmaVersion: 'latest',
     sourceType: 'module',
     project: ['./tsconfig.json']
   },
-  plugins: [
-    'react',
-    'i18next'
-  ],
+  plugins: ['react', 'i18next'],
   rules: {
     semi: [2, 'always'],
     '@typescript-eslint/semi': [2, 'always'],
@@ -32,14 +25,14 @@ module.exports = {
       named: 'never',
       asyncArrow: 'always'
     }],
-    'i18next/no-literal-string': [2, { onlyAttribute: [''] }]
+    'i18next/no-literal-string': [2, {
+      onlyAttribute: ['']
+    }]
   },
-  overrides: [
-    {
-      files: ['**/src/**/*.test.{ts,tsx}'],
-      rules: {
-        'i18next/no-literal-string': 'off'
-      }
+  overrides: [{
+    files: ['**/src/**/*.test.{ts,tsx}'],
+    rules: {
+      'i18next/no-literal-string': 'off'
     }
-  ]
+  }]
 };
