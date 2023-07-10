@@ -8,7 +8,7 @@ export const themeDecorator = (
   const globals = context.globals;
   const pageTheme = typeof globals.theme === 'string' ? globals.theme : '';
   return (
-    <div className={`app ${pageTheme}`}>
+    <div className={`app ${pageTheme}`} style={{ minHeight: '100%' }}>
       <Story />
     </div>
   );
