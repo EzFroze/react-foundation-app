@@ -3,6 +3,7 @@ import { styleDecorator } from 'shared/config/storybook/styleDecorator';
 import { themeDecorator } from 'shared/config/storybook/themeDecorator';
 import { THEME } from 'app/providers/ThemeProvider';
 import { routeDecorator } from 'shared/config/storybook/routeDecorator';
+import 'loki/configure-react';
 
 const preview: Preview = {
   parameters: {
