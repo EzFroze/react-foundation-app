@@ -26,5 +26,6 @@
     "./src/**/*.ts",
     "./src/**/*.tsx",
     "./webpack.config.ts",
+    "./scripts/**/*.ts"
   ]
 }
