@@ -2,9 +2,9 @@
   "pageMain": "Main page",
   "language": "English",
   "pageNotFound": "Page not found",
-  "toggle": "Toggle",
   "toMainPage": "Main",
   "toAboutPage": "About",
   "PageError": "Page error",
-  "ReloadPage": "Reload Page"
+  "ReloadPage": "Reload Page",
+  "shortLanguage": "En"
 }

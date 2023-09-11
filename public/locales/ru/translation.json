@@ -2,9 +2,9 @@
   "pageMain": "Главная страница",
   "language": "Русский",
   "pageNotFound": "Страница не найдена",
-  "toggle": "Toggle",
   "toMainPage": "Главная",
   "toAboutPage": "О сайте",
   "PageError": "Произошла непредвиденная ошибка",
-  "ReloadPage": "Обновить страницу"
+  "ReloadPage": "Обновить страницу",
+  "shortLanguage": "Ru"
 }
