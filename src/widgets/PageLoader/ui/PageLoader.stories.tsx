@@ -1,11 +1,11 @@
-import type { Meta, StoryObj } from '@storybook/react';
+import type { Meta, StoryObj } from "@storybook/react";
 
-import { PageLoader } from './PageLoader';
+import { PageLoader } from "./PageLoader";
 
 const meta: Meta<typeof PageLoader> = {
-  title: 'widget/PageLoader',
+  title: "widget/PageLoader",
   component: PageLoader,
-  tags: ['autodocs']
+  tags: ["autodocs"],
 };
 
 export default meta;

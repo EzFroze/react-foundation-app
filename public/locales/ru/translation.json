@@ -6,5 +6,6 @@
   "toAboutPage": "О сайте",
   "PageError": "Произошла непредвиденная ошибка",
   "ReloadPage": "Обновить страницу",
-  "shortLanguage": "Ru"
+  "shortLanguage": "Ru",
+  "login": "Войти"
 }

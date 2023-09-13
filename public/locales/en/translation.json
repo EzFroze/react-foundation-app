@@ -6,5 +6,6 @@
   "toAboutPage": "About",
   "PageError": "Page error",
   "ReloadPage": "Reload Page",
-  "shortLanguage": "En"
+  "shortLanguage": "En",
+  "login": "Login"
 }

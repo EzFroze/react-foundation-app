@@ -1,11 +1,11 @@
-import type { Meta, StoryObj } from '@storybook/react';
+import type { Meta, StoryObj } from "@storybook/react";
 
-import { Loader } from './Loader';
+import { Loader } from "./Loader";
 
 const meta: Meta<typeof Loader> = {
-  title: 'shared/Loader',
+  title: "shared/Loader",
   component: Loader,
-  tags: ['autodocs']
+  tags: ["autodocs"],
 };
 
 export default meta;

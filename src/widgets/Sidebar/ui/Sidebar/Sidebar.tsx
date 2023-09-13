@@ -1,18 +1,18 @@
-import React, { type FC, useState } from 'react';
-import { classNames } from 'shared/lib/classNames/classNames';
-import styles from './Sidebar.module.scss';
-import { ThemeSwitcher } from 'widgets/ThemeSwitcher';
-import { LangSwitcher } from 'widgets/LangSwitcher';
-import { Button, ButtonSize, ButtonTheme } from 'shared/ui/Button/Button';
-import { AppLink, AppLinkTheme } from 'shared/ui/AppLink/AppLink';
-import { useTranslation } from 'react-i18next';
-import { RoutePath } from 'shared/config/routeConfig/routeConfig';
-import AboutIcon from 'shared/assets/icons/about.svg';
-import MainIcon from 'shared/assets/icons/main.svg';
+import React, { type FC, useState } from "react";
+import { useTranslation } from "react-i18next";
+import AboutIcon from "shared/assets/icons/about.svg";
+import MainIcon from "shared/assets/icons/main.svg";
+import { RoutePath } from "shared/config/routeConfig/routeConfig";
+import { classNames } from "shared/lib/classNames/classNames";
+import { AppLink, AppLinkTheme } from "shared/ui/AppLink/AppLink";
+import { Button, ButtonSize, ButtonTheme } from "shared/ui/Button/Button";
+import { LangSwitcher } from "widgets/LangSwitcher";
+import { ThemeSwitcher } from "widgets/ThemeSwitcher";
+import styles from "./Sidebar.module.scss";
 
 interface SidebarProps {
   /** Дополнительный класс на корневой элемент */
-  className?: string
+  className?: string;
 }
 
 export const Sidebar: FC<SidebarProps> = ({ className }) => {
@@ -21,15 +21,26 @@ export const Sidebar: FC<SidebarProps> = ({ className }) => {
   const { t } = useTranslation();
 
   const onToggle = () => {
-    setCollapsed(prev => !prev);
+    setCollapsed((prev) => !prev);
   };
 
   return (
     <div
-      data-testid='sidebar'
-      className={classNames(styles.Sidebar, { [styles.collapsed]: collapsed }, [className])}
+      data-testid="sidebar"
+      className={classNames(styles.Sidebar, { [styles.collapsed]: collapsed }, [
+        className,
+      ])}
     >
-      <Button onClick={onToggle} square size={ButtonSize.L} data-testid='toggle-button' className={styles.collapseBtn} theme={ButtonTheme.BACKGROUND_INVERTED}>{collapsed ? '>' : '<'}</Button>
+      <Button
+        onClick={onToggle}
+        square
+        size={ButtonSize.L}
+        data-testid="toggle-button"
+        className={styles.collapseBtn}
+        theme={ButtonTheme.BACKGROUND_INVERTED}
+      >
+        {collapsed ? ">" : "<"}
+      </Button>
       <div className={styles.items}>
         <AppLink
           theme={AppLinkTheme.SECONDARY}
@@ -37,7 +48,7 @@ export const Sidebar: FC<SidebarProps> = ({ className }) => {
           className={styles.item}
         >
           <MainIcon className={styles.icon} />
-          <span className={styles.link}>{t('toMainPage')}</span>
+          <span className={styles.link}>{t("toMainPage")}</span>
         </AppLink>
         <div className={styles.item}>
           <AppLink
@@ -46,7 +57,7 @@ export const Sidebar: FC<SidebarProps> = ({ className }) => {
             className={styles.item}
           >
             <AboutIcon className={styles.icon} />
-            <span className={styles.link}>{t('toAboutPage')}</span>
+            <span className={styles.link}>{t("toAboutPage")}</span>
           </AppLink>
         </div>
       </div>

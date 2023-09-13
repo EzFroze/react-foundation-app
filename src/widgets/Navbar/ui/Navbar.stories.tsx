@@ -1,11 +1,11 @@
-import type { Meta, StoryObj } from '@storybook/react';
+import type { Meta, StoryObj } from "@storybook/react";
 
-import { Navbar } from './Navbar';
+import { Navbar } from "./Navbar";
 
 const meta: Meta<typeof Navbar> = {
-  title: 'widget/Navbar',
+  title: "widget/Navbar",
   component: Navbar,
-  tags: ['autodocs']
+  tags: ["autodocs"],
 };
 
 export default meta;

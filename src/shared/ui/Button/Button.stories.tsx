@@ -1,11 +1,11 @@
-import type { Meta, StoryObj } from '@storybook/react';
+import type { Meta, StoryObj } from "@storybook/react";
 
-import { Button, ButtonSize, ButtonTheme } from './Button';
+import { Button, ButtonSize, ButtonTheme } from "./Button";
 
 const meta: Meta<typeof Button> = {
-  title: 'shared/Button',
+  title: "shared/Button",
   component: Button,
-  tags: ['autodocs']
+  tags: ["autodocs"],
 };
 
 export default meta;
@@ -13,99 +13,106 @@ type Story = StoryObj<typeof Button>;
 
 export const Primary: Story = {
   args: {
-    children: 'Hello'
-  }
+    children: "Hello",
+  },
 };
 
 export const PrimarySizeL: Story = {
   args: {
-    children: 'Hello',
-    size: ButtonSize.L
-  }
+    children: "Hello",
+    size: ButtonSize.L,
+  },
 };
 
 export const PrimarySizeXL: Story = {
   args: {
-    children: 'Hello',
-    size: ButtonSize.XL
-  }
+    children: "Hello",
+    size: ButtonSize.XL,
+  },
 };
 
 export const Clear: Story = {
   args: {
-    children: 'Hello',
-    theme: ButtonTheme.CLEAR
-  }
+    children: "Hello",
+    theme: ButtonTheme.CLEAR,
+  },
+};
+
+export const ClearInverted: Story = {
+  args: {
+    children: "Hello",
+    theme: ButtonTheme.CLEAR_INVERTED,
+  },
 };
 
 export const Outline: Story = {
   args: {
-    children: 'Hello',
-    theme: ButtonTheme.OUTLINE
-  }
+    children: "Hello",
+    theme: ButtonTheme.OUTLINE,
+  },
 };
 
 export const OutlineSizeL: Story = {
   args: {
-    children: 'Hello',
+    children: "Hello",
     theme: ButtonTheme.OUTLINE,
-    size: ButtonSize.L
-  }
+    size: ButtonSize.L,
+  },
 };
 
 export const OutlineSizeXL: Story = {
   args: {
-    children: 'Hello',
+    children: "Hello",
     theme: ButtonTheme.OUTLINE,
-    size: ButtonSize.XL
-  }
+    size: ButtonSize.XL,
+  },
 };
 
 export const Background: Story = {
   args: {
-    children: 'Hello',
-    theme: ButtonTheme.BACKGROUND
-  }
+    children: "Hello",
+    theme: ButtonTheme.BACKGROUND,
+  },
 };
 
 export const BackgroundInverted: Story = {
   args: {
-    children: 'Hello',
-    theme: ButtonTheme.BACKGROUND_INVERTED
-  }
+    children: "Hello",
+    theme: ButtonTheme.BACKGROUND_INVERTED,
+  },
 };
 
 export const Square: Story = {
   args: {
-    children: '>',
+    children: ">",
     theme: ButtonTheme.BACKGROUND_INVERTED,
-    square: true
-  }
+    square: true,
+  },
 };
 
 export const SquareSizeM: Story = {
   args: {
-    children: '>',
+    children: ">",
     theme: ButtonTheme.BACKGROUND_INVERTED,
     square: true,
-    size: ButtonSize.M
-  }
+    size: ButtonSize.M,
+  },
 };
 
 export const SquareSizeL: Story = {
   args: {
-    children: '>',
+    children: ">",
     theme: ButtonTheme.BACKGROUND_INVERTED,
     square: true,
-    size: ButtonSize.L
-  }
+    size: ButtonSize.L,
+  },
 };
 
 export const SquareSizeXL: Story = {
   args: {
-    children: '>',
+    children: ">",
     theme: ButtonTheme.BACKGROUND_INVERTED,
     square: true,
-    size: ButtonSize.XL
-  }
+    size: ButtonSize.XL,
+  },
 };

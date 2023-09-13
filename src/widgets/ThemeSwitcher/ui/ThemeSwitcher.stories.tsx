@@ -1,7 +1,7 @@
-import type { Meta, StoryObj } from '@storybook/react';
+import type { Meta, StoryObj } from "@storybook/react";
 
-import { ThemeSwitcher } from './ThemeSwitcher';
-import { ThemeProvider } from 'app/providers/ThemeProvider';
+import { ThemeProvider } from "app/providers/ThemeProvider";
+import { ThemeSwitcher } from "./ThemeSwitcher";
 
 const Component = () => (
   <ThemeProvider>
@@ -10,9 +10,9 @@ const Component = () => (
 );
 
 const meta: Meta<typeof ThemeSwitcher> = {
-  title: 'widget/ThemeSwitcher',
+  title: "widget/ThemeSwitcher",
   component: Component,
-  tags: ['autodocs']
+  tags: ["autodocs"],
 };
 
 export default meta;
