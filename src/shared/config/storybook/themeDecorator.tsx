@@ -10,13 +10,13 @@ export const themeDecorator = (
   const pageTheme = typeof globals.theme === "string" ? globals.theme : "";
 
   return (
-    <ThemeProvider>
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-expect-error
+    <ThemeProvider initialTheme={pageTheme}>
       <div
-        className={`app ${pageTheme}`}
+        className="app"
         style={{
           minHeight: "100%",
-          font: "var(--font-main)",
-          color: "var(--primary-color)",
         }}
       >
         <Story />
