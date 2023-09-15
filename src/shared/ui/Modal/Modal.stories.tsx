@@ -1,6 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { THEME, ThemeProvider } from "app/providers/ThemeProvider";
-import { useEffect, useState } from "react";
 import { Modal } from "./Modal";
 
 const meta: Meta<typeof Modal> = {
@@ -21,18 +20,11 @@ export const Primary: Story = {
         perspiciatis repudiandae temporibus tenetur!`,
   },
   render: (args) => {
-    // eslint-disable-next-line react-hooks/rules-of-hooks
-    const [isOpen, setIsOpen] = useState(args.isOpen);
-
-    // eslint-disable-next-line react-hooks/rules-of-hooks
-    useEffect(() => {
-      setIsOpen(args.isOpen);
-    }, [args.isOpen]);
-
-    const onClose = () => {
-      setIsOpen(false);
-    };
-    return <Modal {...args} isOpen={isOpen} onClose={onClose} />;
+    return (
+      <ThemeProvider initialTheme={THEME.LIGHT}>
+        <Modal {...args} />
+      </ThemeProvider>
+    );
   },
 };
 
@@ -45,20 +37,9 @@ export const Dark: Story = {
         perspiciatis repudiandae temporibus tenetur!`,
   },
   render: (args) => {
-    // eslint-disable-next-line react-hooks/rules-of-hooks
-    const [isOpen, setIsOpen] = useState(args.isOpen);
-
-    // eslint-disable-next-line react-hooks/rules-of-hooks
-    useEffect(() => {
-      setIsOpen(args.isOpen);
-    }, [args.isOpen]);
-
-    const onClose = () => {
-      setIsOpen(false);
-    };
     return (
       <ThemeProvider initialTheme={THEME.DARK}>
-        <Modal {...args} isOpen={isOpen} onClose={onClose} />;
+        <Modal {...args} />
       </ThemeProvider>
     );
   },
