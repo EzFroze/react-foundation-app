@@ -74,9 +74,9 @@ export const Input: FC<InputProps> = memo(
         <div className={styles.caretWrapper}>
           <input
             ref={inputRef}
+            className={styles.input}
             value={value}
             onChange={onChangeHandler}
-            className={styles.input}
             onBlur={onBlurHandler}
             onFocus={onFocusHandler}
             onSelect={onSelectHandler}
