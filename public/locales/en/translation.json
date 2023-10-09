@@ -7,5 +7,7 @@
   "PageError": "Page error",
   "ReloadPage": "Reload Page",
   "shortLanguage": "En",
-  "login": "Login"
+  "login": "Login",
+  "loginFormUserNameInput": "username",
+  "loginFormUserPasswordInput": "password"
 }

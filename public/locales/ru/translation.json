@@ -7,5 +7,7 @@
   "PageError": "Произошла непредвиденная ошибка",
   "ReloadPage": "Обновить страницу",
   "shortLanguage": "Ru",
-  "login": "Войти"
+  "login": "Войти",
+  "loginFormUserNameInput": "Введите username",
+  "loginFormUserPasswordInput": "Введите пароль"
 }

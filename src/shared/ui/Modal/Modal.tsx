@@ -13,6 +13,7 @@ interface ModalProps {
   className?: string;
   isOpen?: boolean;
   onClose?: () => void;
+  lazy?: boolean;
 }
 
 const ANIMATION_DELAY = 300;
@@ -22,8 +23,10 @@ export const Modal: FC<ModalProps> = ({
   children,
   isOpen,
   onClose,
+  lazy = false,
 }) => {
   const [isClosing, setIsClosing] = useState(false);
+  const [isMounted, setIsMounted] = useState(false);
   const timerRef = useRef<ReturnType<typeof setTimeout>>();
 
   const onContentClick = (e: React.MouseEvent) => {
@@ -61,10 +64,20 @@ export const Modal: FC<ModalProps> = ({
     };
   }, [isOpen, onKeyDown]);
 
+  useEffect(() => {
+    if (isOpen) {
+      setIsMounted(true);
+    }
+  }, [isOpen]);
+
   const mods: Record<string, boolean> = {
     [styles.opened]: !!isOpen,
     [styles.isClosing]: isClosing,
   };
+
+  if (lazy && !isMounted) {
+    return null;
+  }
 
   return (
     <Portal>
