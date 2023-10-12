@@ -9,5 +9,8 @@
   "shortLanguage": "En",
   "login": "Login",
   "loginFormUserNameInput": "username",
-  "loginFormUserPasswordInput": "password"
+  "loginFormUserPasswordInput": "password",
+  "loginFormTitle": "Auth",
+  "loginFormAuthError": "You entered your username or password incorrectly",
+  "logout": "Logout"
 }

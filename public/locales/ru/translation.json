@@ -9,5 +9,8 @@
   "shortLanguage": "Ru",
   "login": "Войти",
   "loginFormUserNameInput": "Введите username",
-  "loginFormUserPasswordInput": "Введите пароль"
+  "loginFormUserPasswordInput": "Введите пароль",
+  "loginFormTitle": "Форма авторизации",
+  "loginFormAuthError": "Вы не правильно ввели логин или пароль",
+  "logout": "Выйти"
 }
