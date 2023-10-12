@@ -2,6 +2,7 @@ import type { Preview } from "@storybook/react";
 import { THEME } from "app/providers/ThemeProvider";
 import { routeDecorator } from "shared/config/storybook/routeDecorator";
 import { styleDecorator } from "shared/config/storybook/styleDecorator";
+import { suspenseDecorator } from "shared/config/storybook/suspenseDecorator";
 import { themeDecorator } from "shared/config/storybook/themeDecorator";
 import "loki/configure-react";
 
@@ -30,7 +31,12 @@ const preview: Preview = {
       },
     },
   },
-  decorators: [styleDecorator, themeDecorator, routeDecorator],
+  decorators: [
+    styleDecorator,
+    themeDecorator,
+    routeDecorator,
+    suspenseDecorator,
+  ],
 };
 
 export default preview;

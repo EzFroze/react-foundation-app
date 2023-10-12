@@ -1,6 +1,25 @@
 import { type ReactRenderer } from "@storybook/react";
 import { type PartialStoryFn, type StoryContext } from "@storybook/types";
-import { ThemeProvider } from "app/providers/ThemeProvider";
+import {
+  type THEME,
+  ThemeContext,
+  ThemeProvider,
+} from "app/providers/ThemeProvider";
+import { type FC, useContext, useEffect } from "react";
+
+interface ThemeSetProps {
+  currentTheme: string;
+}
+
+const ThemeSet: FC<ThemeSetProps> = ({ currentTheme, children }) => {
+  const { setTheme } = useContext(ThemeContext);
+
+  useEffect(() => {
+    setTheme(currentTheme as THEME);
+  }, [currentTheme, setTheme]);
+
+  return <>{children}</>;
+};
 
 export const themeDecorator = (
   Story: PartialStoryFn<ReactRenderer, Record<string, any>>,
@@ -10,16 +29,16 @@ export const themeDecorator = (
   const pageTheme = typeof globals.theme === "string" ? globals.theme : "";
 
   return (
-    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-    // @ts-expect-error
-    <ThemeProvider initialTheme={pageTheme}>
+    <ThemeProvider>
       <div
         className="app"
         style={{
           minHeight: "100%",
         }}
       >
-        <Story />
+        <ThemeSet currentTheme={pageTheme}>
+          <Story />
+        </ThemeSet>
       </div>
     </ThemeProvider>
   );

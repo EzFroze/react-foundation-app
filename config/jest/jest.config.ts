@@ -15,6 +15,7 @@ export default {
     "\\.s?css$": "identity-obj-proxy",
     "\\.svg": path.resolve(__dirname, "jestEmptyComponent.tsx"),
   },
+  transformIgnorePatterns: ["node_modules/(?!axios)"],
   globals: {
     __IS_DEV__: true,
   },

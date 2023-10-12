@@ -14,6 +14,8 @@ interface ModalProps {
   isOpen?: boolean;
   onClose?: () => void;
   lazy?: boolean;
+  // Нужен для storybook и loki
+  to?: HTMLElement;
 }
 
 const ANIMATION_DELAY = 300;
@@ -24,6 +26,7 @@ export const Modal: FC<ModalProps> = ({
   isOpen,
   onClose,
   lazy = false,
+  to,
 }) => {
   const [isClosing, setIsClosing] = useState(false);
   const [isMounted, setIsMounted] = useState(false);
@@ -80,7 +83,7 @@ export const Modal: FC<ModalProps> = ({
   }
 
   return (
-    <Portal>
+    <Portal to={to}>
       <div className={classNames(styles.Modal, mods, [className])}>
         <div className={styles.overlay} onClick={closeHandler}>
           <div className={styles.content} onClick={onContentClick}>

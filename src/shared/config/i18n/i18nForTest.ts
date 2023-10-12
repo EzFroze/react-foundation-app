@@ -12,6 +12,9 @@ i18n.use(initReactI18next).init({
   },
 
   resources: { ru: { translations: {} } },
+  react: {
+    useSuspense: false,
+  },
 });
 
 export default i18n;
