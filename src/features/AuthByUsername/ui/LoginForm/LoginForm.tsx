@@ -2,22 +2,32 @@ import { type FC, memo, useCallback } from "react";
 import { useTranslation } from "react-i18next";
 import { useDispatch, useSelector } from "react-redux";
 import { classNames } from "shared/lib/classNames/classNames";
+import {
+  type ReducersList,
+  useDynamicModuleLoader,
+} from "shared/lib/hooks/useDynamicModuleLoader/useDynamicModuleLoader";
 import { Button, ButtonTheme } from "shared/ui/Button/Button";
 import { Input } from "shared/ui/Input/Input";
 import { Text, TextTheme } from "shared/ui/Text/Text";
 import { getLoginState } from "../../model/selectors/getLoginState/getLoginState";
 import { loginByUsername } from "../../model/services/loginByUsername/loginByUsername";
-import { loginActions } from "../../model/slice/loginSlice";
+import { loginActions, loginReducer } from "../../model/slice/loginSlice";
 import styles from "./LoginForm.module.scss";
 
 interface LoginFormProps {
   className?: string;
 }
 
-export const LoginForm: FC<LoginFormProps> = memo(({ className }) => {
+const initialReducers: ReducersList = {
+  loginForm: loginReducer,
+};
+
+const LoginForm: FC<LoginFormProps> = memo(({ className }) => {
   const { t } = useTranslation();
+  useDynamicModuleLoader({ reducers: initialReducers });
 
   const dispatch = useDispatch();
+
   const { username, password, isLoading, error } = useSelector(getLoginState);
 
   const onChangeUsername = useCallback(
@@ -68,3 +78,5 @@ export const LoginForm: FC<LoginFormProps> = memo(({ className }) => {
     </div>
   );
 });
+
+export default LoginForm;

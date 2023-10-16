@@ -1,6 +1,6 @@
 import { lazy } from "react";
 
-export const AboutPageLazy = lazy(
+export const AboutPageAsync = lazy(
   async () =>
     await new Promise((resolve) => {
       // ТАК В РЕАЛЬНЫХ ПРОЕКТАХ НЕ ДЕЛАТЬ!!!!! ДЕЛАЕМ ДЛЯ КУРСА!
