@@ -1,8 +1,8 @@
 import type { Preview } from "@storybook/react";
 import { THEME } from "app/providers/ThemeProvider";
+import { i18nDecorator } from "shared/config/storybook/i18nDecorator";
 import { routeDecorator } from "shared/config/storybook/routeDecorator";
 import { styleDecorator } from "shared/config/storybook/styleDecorator";
-import { suspenseDecorator } from "shared/config/storybook/suspenseDecorator";
 import { themeDecorator } from "shared/config/storybook/themeDecorator";
 import "loki/configure-react";
 
@@ -30,13 +30,21 @@ const preview: Preview = {
         dynamicTitle: true,
       },
     },
+    locale: {
+      name: "Locale",
+      description: "Internationalization locale",
+      toolbar: {
+        icon: "globe",
+        items: [
+          { value: "ru", title: "Russia" },
+          { value: "en", title: "English" },
+        ],
+        showName: true,
+        dynamicTitle: true,
+      },
+    },
   },
-  decorators: [
-    styleDecorator,
-    themeDecorator,
-    routeDecorator,
-    suspenseDecorator,
-  ],
+  decorators: [styleDecorator, themeDecorator, routeDecorator, i18nDecorator],
 };
 
 export default preview;

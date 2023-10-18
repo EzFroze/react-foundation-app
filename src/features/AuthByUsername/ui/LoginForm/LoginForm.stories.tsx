@@ -32,7 +32,7 @@ export const WithError: Story = {
       loginForm: {
         username: "123",
         password: "asd",
-        error: "ERROR",
+        errorI18nKey: "ERROR",
         isLoading: false,
       },
     }),

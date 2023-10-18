@@ -1,7 +1,8 @@
 import { type FC, memo, useCallback } from "react";
 import { useTranslation } from "react-i18next";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import { classNames } from "shared/lib/classNames/classNames";
+import { useAppDispatch } from "shared/lib/hooks/useAppDispatch/useAppDispatch";
 import {
   type ReducersList,
   useDynamicModuleLoader,
@@ -16,19 +17,21 @@ import styles from "./LoginForm.module.scss";
 
 interface LoginFormProps {
   className?: string;
+  onSuccess: () => void;
 }
 
 const initialReducers: ReducersList = {
   loginForm: loginReducer,
 };
 
-const LoginForm: FC<LoginFormProps> = memo(({ className }) => {
+const LoginForm: FC<LoginFormProps> = memo(({ className, onSuccess }) => {
   const { t } = useTranslation();
   useDynamicModuleLoader({ reducers: initialReducers });
 
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
 
-  const { username, password, isLoading, error } = useSelector(getLoginState);
+  const { username, password, isLoading, errorI18nKey } =
+    useSelector(getLoginState);
 
   const onChangeUsername = useCallback(
     (value: string) => {
@@ -44,14 +47,19 @@ const LoginForm: FC<LoginFormProps> = memo(({ className }) => {
     [dispatch]
   );
 
-  const handleLoginClick = useCallback(() => {
-    dispatch(loginByUsername({ username, password }));
-  }, [dispatch, password, username]);
+  const handleLoginClick = useCallback<() => void>(async () => {
+    const result = await dispatch(loginByUsername({ username, password }));
+    if (result.meta.requestStatus === "fulfilled") {
+      onSuccess();
+    }
+  }, [dispatch, onSuccess, password, username]);
 
   return (
     <div className={classNames(styles.LoginForm, {}, [className])}>
       <Text title={t("loginFormTitle")}></Text>
-      {error ? <Text text={error} theme={TextTheme.ERROR} /> : null}
+      {errorI18nKey ? (
+        <Text text={t(errorI18nKey)} theme={TextTheme.ERROR} />
+      ) : null}
       <Input
         type="text"
         className={styles.input}

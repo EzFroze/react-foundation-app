@@ -32,9 +32,9 @@ describe("getLoginState", () => {
     const state: DeepPartial<StateSchema> = {
       loginForm: {
         ...initialState,
-        error: "error",
+        errorI18nKey: "error",
       },
     };
-    expect(getLoginState(state as StateSchema).error).toEqual("error");
+    expect(getLoginState(state as StateSchema).errorI18nKey).toEqual("error");
   });
 });

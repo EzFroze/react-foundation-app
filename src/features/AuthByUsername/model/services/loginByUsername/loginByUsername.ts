@@ -1,7 +1,6 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 import { type User, userActions } from "entities/User";
-import i18n from "shared/config/i18n/i18n";
 import { USER_LOCALE_STORAGE_KEY } from "shared/const/localstorage";
 
 interface LoginByUsernameProps {
@@ -31,6 +30,6 @@ export const loginByUsername = createAsyncThunk<
   } catch (e) {
     // eslint-disable-next-line no-console
     console.log(e);
-    return thunkAPI.rejectWithValue(i18n.t("loginFormAuthError"));
+    return thunkAPI.rejectWithValue("loginFormAuthError");
   }
 });

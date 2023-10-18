@@ -26,6 +26,13 @@
     }
   ],
   "profile": {
-    "name": "typicode"
+    "first": "Rustam",
+    "lastname": "Sultanbekov",
+    "age": 22,
+    "currency": "RUB",
+    "country": "Russia",
+    "city": "Moscow",
+    "username": "admin",
+    "avatar": "https://avatars.githubusercontent.com/u/43078049?v=4"
   }
 }
