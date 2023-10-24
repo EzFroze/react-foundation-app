@@ -1,3 +1,6 @@
 {
-  "pageProfile": "pageProfile"
+  "profileTitle": "Profile",
+  "profileEdit": "Edit",
+  "profileEditName": "Name",
+  "profileEditLastname": "Lastname"
 }

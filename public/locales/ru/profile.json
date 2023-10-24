@@ -1,3 +1,6 @@
 {
-  "pageProfile": "pageProfile"
+  "profileTitle": "Профиль",
+  "profileEdit": "Редактировать",
+  "profileEditName": "Ваше имя",
+  "profileEditLastname": "Ваша фамилия"
 }

@@ -18,5 +18,6 @@ export default {
   transformIgnorePatterns: ["node_modules/(?!axios)"],
   globals: {
     __IS_DEV__: true,
+    __API__: "",
   },
 };
