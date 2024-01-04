@@ -3,6 +3,10 @@
   "version": "1.0.0",
   "description": "",
   "main": "src/index.tsx",
+  "sideEffects": [
+    "**/*.css",
+    "**/*.scss"
+  ],
   "scripts": {
     "start": "webpack serve --env port=3000",
     "start:dev:server": "node json-server/index.js",
