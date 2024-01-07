@@ -1,19 +1,21 @@
-import { type County, type Currency } from "shared/const/common";
+import { type Country } from "entities/Country";
+import { type Currency } from "entities/Currency";
 
 export interface Profile {
-  first: string;
-  lastname: string;
-  age: number;
-  currency: Currency;
-  country: County;
-  city: string;
-  username: string;
-  avatar: string;
+  first?: string;
+  lastname?: string;
+  age?: number;
+  currency?: Currency;
+  country?: Country;
+  city?: string;
+  username?: string;
+  avatar?: string;
 }
 
 export interface ProfileSchema {
   readonly: boolean;
   isLoading: boolean;
   data?: Profile;
-  errorI18nKey?: string;
+  form?: Profile;
+  error?: string;
 }

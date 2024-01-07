@@ -2,5 +2,13 @@
   "profileTitle": "Profile",
   "profileEdit": "Edit",
   "profileEditName": "Name",
-  "profileEditLastname": "Lastname"
+  "profileEditLastname": "Lastname",
+  "profileErrorTitle": "An error occurred while uploading the profile",
+  "profileErrorText": "Try refreshing the page",
+  "profileEditCancel": "Cancel",
+  "profileEditSave": "Save",
+  "profileEditAge": "Age",
+  "profileEditCity": "City",
+  "profileEditUsername": "Username",
+  "profileEditAvatar": "Link to avatar"
 }

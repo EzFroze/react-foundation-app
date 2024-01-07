@@ -1,4 +1,3 @@
 import { type StateSchema } from "app/providers/StoreProvider";
 
-export const getProfileError = (state: StateSchema) =>
-  state.profile?.errorI18nKey;
+export const getProfileError = (state: StateSchema) => state.profile?.error;

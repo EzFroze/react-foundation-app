@@ -14,5 +14,7 @@
   "loginFormAuthError": "You entered your username or password incorrectly",
   "logout": "Logout",
   "toProfilePage": "Profile",
-  "item": "item"
+  "item": "item",
+  "currencySelectLabel": "Select currency",
+  "countrySelectLabel": "Select country"
 }

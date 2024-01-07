@@ -17,7 +17,7 @@ export const Primary: Story = {
     storeDecorator({
       profile: {
         data: undefined,
-        errorI18nKey: "",
+        error: "",
         isLoading: false,
         readonly: true,
       },

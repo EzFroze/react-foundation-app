@@ -14,5 +14,7 @@
   "loginFormAuthError": "Вы не правильно ввели логин или пароль",
   "logout": "Выйти",
   "toProfilePage": "Профиль",
-  "item": "item"
+  "item": "item",
+  "currencySelectLabel": "Укажите валюту",
+  "countrySelectLabel": "Укажите страну"
 }

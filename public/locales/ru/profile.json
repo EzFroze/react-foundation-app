@@ -2,5 +2,14 @@
   "profileTitle": "Профиль",
   "profileEdit": "Редактировать",
   "profileEditName": "Ваше имя",
-  "profileEditLastname": "Ваша фамилия"
+  "profileEditLastname": "Ваша фамилия",
+  "profileErrorTitle": "Произошла ошибка при загрузке профиля",
+  "profileErrorText": "Попробуйте обновить страницу",
+  "profileEditCancel": "Отменить",
+  "profileEditSave": "Сохранить",
+  "profileEditAge": "Ваш возраст",
+  "profileEditCity": "Ваш город",
+  "profileEditUsername": "Имя пользователя",
+  "profileEditAvatar": "Ссылка на аватар"
+
 }
