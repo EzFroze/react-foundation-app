@@ -20,7 +20,7 @@ module.exports = {
   rules: {
     semi: [2, "always"],
     "@typescript-eslint/semi": [2, "always"],
-    indent: ["error", 2],
+    indent: ["warn", 2],
     "react/jsx-indent": ["error", 2],
     "react/react-in-jsx-scope": "off",
     "react/display-name": ["warn", { ignoreTranspilerName: true }],
