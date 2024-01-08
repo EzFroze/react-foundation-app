@@ -1,5 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
+import { Country } from "entities/Country";
+import { Currency } from "entities/Currency";
 import { storeDecorator } from "shared/config/storybook/storeDecorator";
 import ProfilePage from "./ProfilePage";
 
@@ -20,6 +22,15 @@ export const Primary: Story = {
         error: "",
         isLoading: false,
         readonly: true,
+        form: {
+          first: "Piter",
+          lastname: "Parker",
+          country: Country.Kazakhstan,
+          currency: Currency.USD,
+          city: "Moscow",
+          username: "Vaspupka",
+          avatar: "https://avatars.githubusercontent.com/u/43078049?v=4",
+        },
       },
     }),
   ],

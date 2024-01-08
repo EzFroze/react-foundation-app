@@ -10,6 +10,10 @@
   "profileEditAge": "Ваш возраст",
   "profileEditCity": "Ваш город",
   "profileEditUsername": "Имя пользователя",
-  "profileEditAvatar": "Ссылка на аватар"
-
+  "profileEditAvatar": "Ссылка на аватар",
+  "profileServerError": "Ошибка сервера",
+  "profileIncorrectAge": "Укажите возраст",
+  "profileIncorrectUserData": "Укажите имя и фамилию",
+  "profileIncorrectCountry": "Укажите страну",
+  "profileNoData": "Нет данных профиля"
 }

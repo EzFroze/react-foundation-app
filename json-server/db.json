@@ -26,13 +26,13 @@
     }
   ],
   "profile": {
-    "first": "Rustam",
+    "first": "R",
     "lastname": "Sultanbekov",
-    "age": 22,
     "currency": "USD",
     "country": "Kazakhstan",
     "city": "Moscow",
     "username": "admin",
-    "avatar": "https://avatars.githubusercontent.com/u/43078049?v=4"
+    "avatar": "https://avatars.githubusercontent.com/u/43078049?v=4",
+    "age": 22
   }
 }

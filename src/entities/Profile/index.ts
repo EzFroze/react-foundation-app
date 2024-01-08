@@ -1,4 +1,5 @@
 export type { Profile, ProfileSchema } from "./model/types/profile";
+export { ValidateProfileError } from "./model/types/profile";
 export { profileReducer, profileActions } from "./model/slice/profileSlice";
 
 export { fetchProfileData } from "./model/services/fetchProfileData/fetchProfileData";
@@ -9,3 +10,4 @@ export { getProfileForm } from "./model/selectors/getProfileForm/getProfileForm"
 export { getProfileLoading } from "./model/selectors/getProfileLoading/getProfileLoading";
 export { getProfileError } from "./model/selectors/getProfileError/getProfileError";
 export { getProfileReadonly } from "./model/selectors/getProfileReadonly/getProfileReadonly";
+export { getProfileValidateErrors } from "./model/selectors/getProfileValidateErrors/getProfileValidateErrors";

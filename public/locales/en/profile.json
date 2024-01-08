@@ -10,5 +10,10 @@
   "profileEditAge": "Age",
   "profileEditCity": "City",
   "profileEditUsername": "Username",
-  "profileEditAvatar": "Link to avatar"
+  "profileEditAvatar": "Link to avatar",
+  "profileServerError": "Server error",
+  "profileIncorrectAge": "Incorrect age",
+  "profileIncorrectUserData": "Incorrect firstname or lastname",
+  "profileIncorrectCountry": "Incorrect country",
+  "profileNoData": "Not found profile data"
 }
