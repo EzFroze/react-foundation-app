@@ -20,7 +20,6 @@
     "test:unit": "jest --config ./config/jest/jest.config.ts",
     "test:ui": "npx loki test",
     "test:ui:ok": "npx loki approve",
-    "test:ui:ci": "concurrently --kill-others --raw --success first \"npm run storybook\" \"npm run test:ui\" \"deelay\"",
     "test:ui:report": "npm run test:ui:json && npm run test:ui:html && open .loki/report.html",
     "test:ui:json": "ts-node scripts/generate-visual-json-report.ts",
     "test:ui:html": "reg-cli --from .loki/report.json --report .loki/report.html",
@@ -98,7 +97,6 @@
   "dependencies": {
     "@reduxjs/toolkit": "^1.8.0",
     "axios": "^1.5.1",
-    "deelay": "^2.0.0",
     "i18next": "^21.6.11",
     "i18next-browser-languagedetector": "^6.1.3",
     "i18next-http-backend": "^1.3.2",
