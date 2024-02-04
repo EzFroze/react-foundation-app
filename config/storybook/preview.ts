@@ -1,10 +1,10 @@
 import type { Preview } from "@storybook/react";
 import { THEME } from "app/providers/ThemeProvider";
 import { i18nDecorator } from "shared/config/storybook/i18nDecorator";
-import { routeDecorator } from "shared/config/storybook/routeDecorator";
 import { styleDecorator } from "shared/config/storybook/styleDecorator";
 import { themeDecorator } from "shared/config/storybook/themeDecorator";
 import "loki/configure-react";
+import { withRouter } from "storybook-addon-react-router-v6";
 
 const preview: Preview = {
   parameters: {
@@ -45,7 +45,7 @@ const preview: Preview = {
       },
     },
   },
-  decorators: [styleDecorator, themeDecorator, routeDecorator, i18nDecorator],
+  decorators: [styleDecorator, themeDecorator, i18nDecorator, withRouter],
 };
 
 export default preview;

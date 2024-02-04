@@ -1,3 +1,4 @@
 {
-  
+  "articleNotFound": "Статья не найдена",
+  "articleErrorLoading": "Произошла ошибка при загрузке статьи."
 }

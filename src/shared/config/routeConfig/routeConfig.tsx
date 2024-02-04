@@ -1,6 +1,6 @@
 import { AboutPage } from "pages/AboutPage";
 import { ArticleDetailsPage } from "pages/ArticleDetailsPage";
-import ArticlesPage from "pages/ArticlesPage/ui/ArticlesPage/ArticlesPage";
+import { ArticlesPage } from "pages/ArticlesPage";
 import { MainPage } from "pages/MainPage";
 import { NotFoundPage } from "pages/NotFoundPage";
 import { ProfilePage } from "pages/ProfilePage";
@@ -26,7 +26,7 @@ export const RoutePath: Record<AppRoutes, string> = {
   [AppRoutes.ABOUT]: "/about",
   [AppRoutes.PROFILE]: "/profile",
   [AppRoutes.ARTICLES]: "/articles",
-  [AppRoutes.ARTICLE_DETAILS]: "/articles/", // +id
+  [AppRoutes.ARTICLE_DETAILS]: "/article/", // +id
 
   // последний
   [AppRoutes.NOT_FOUND]: "*",

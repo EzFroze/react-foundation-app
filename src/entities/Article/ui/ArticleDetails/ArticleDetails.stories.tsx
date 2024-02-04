@@ -1,31 +1,20 @@
 import type { Meta, StoryObj } from "@storybook/react";
-
-import type { Article } from "entities/Article";
+import { type Article } from "entities/Article";
 import {
   ArticleBlockType,
   ArticleType,
 } from "entities/Article/model/types/article";
-import { routeConfig } from "shared/config/routeConfig/routeConfig";
 import { storeDecorator } from "shared/config/storybook/storeDecorator";
-import { reactRouterParameters } from "storybook-addon-react-router-v6";
-import ArticleDetailsPage from "./ArticleDetailsPage";
+import { ArticleDetails } from "./ArticleDetails";
 
-const meta: Meta<typeof ArticleDetailsPage> = {
-  title: "pages/ArticleDetailsPage",
-  component: ArticleDetailsPage,
+const meta: Meta<typeof ArticleDetails> = {
+  title: "entities/ArticleDetails",
+  component: ArticleDetails,
   tags: ["autodocs"],
-  parameters: {
-    reactRouter: reactRouterParameters({
-      location: {
-        pathParams: { id: 1 },
-      },
-      routing: { path: routeConfig.article_details.path },
-    }),
-  },
 };
 
 export default meta;
-type Story = StoryObj<typeof ArticleDetailsPage>;
+type Story = StoryObj<typeof ArticleDetails>;
 
 const article: Article = {
   id: "1",
@@ -103,6 +92,28 @@ export const Primary: Story = {
     storeDecorator({
       articleDetails: {
         data: article,
+      },
+    }),
+  ],
+};
+
+export const Loading: Story = {
+  args: {},
+  decorators: [
+    storeDecorator({
+      articleDetails: {
+        isLoading: true,
+      },
+    }),
+  ],
+};
+
+export const Error: Story = {
+  args: {},
+  decorators: [
+    storeDecorator({
+      articleDetails: {
+        error: "Error",
       },
     }),
   ],

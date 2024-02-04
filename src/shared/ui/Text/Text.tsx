@@ -1,4 +1,4 @@
-import { type FC, memo } from "react";
+import { type FC, memo, type ReactNode, useMemo } from "react";
 import { classNames } from "shared/lib/classNames/classNames";
 import styles from "./Text.module.scss";
 
@@ -13,12 +13,18 @@ export enum TextAlign {
   CENTER = "center",
 }
 
+export enum TextSize {
+  M = "size_m",
+  L = "size_l",
+}
+
 interface TextProps {
   className?: string;
-  title?: string;
-  text?: string;
+  title?: ReactNode;
+  text?: ReactNode;
   theme?: TextTheme;
   align?: TextAlign;
+  size?: TextSize;
 }
 
 export const Text: FC<TextProps> = memo(
@@ -28,15 +34,15 @@ export const Text: FC<TextProps> = memo(
     title,
     theme = TextTheme.PRIMARY,
     align = TextAlign.LEFT,
+    size = TextSize.M,
   }) => {
+    const additionalClasses = useMemo(
+      () => [className, styles[theme], styles[align], styles[size]],
+      [align, className, size, theme]
+    );
+
     return (
-      <div
-        className={classNames("", {}, [
-          className,
-          styles[theme],
-          styles[align],
-        ])}
-      >
+      <div className={classNames("", {}, additionalClasses)}>
         {title ? <p className={styles.title}>{title}</p> : null}
         {text ? <p className={styles.text}>{text}</p> : null}
       </div>

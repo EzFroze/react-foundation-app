@@ -125,17 +125,20 @@ const ProfilePage: FC<ProfilePageProps> = ({ className }) => {
     [dispatch]
   );
 
+  const validateErrorsText = validateErrors?.length
+    ? validateErrors.map((err) => (
+      <Text
+          key={err}
+          text={validateErrorsTranslations[err]}
+          theme={TextTheme.ERROR}
+        />
+      ))
+    : null;
+
   return (
     <div className={classNames("", {}, [className])}>
       <ProfilePageHeader />
-      {validateErrors?.length &&
-        validateErrors.map((err) => (
-          <Text
-            key={err}
-            text={validateErrorsTranslations[err]}
-            theme={TextTheme.ERROR}
-          />
-        ))}
+      {validateErrorsText}
       <ProfileCard
         data={form}
         isLoading={isLoading}
