@@ -17,5 +17,6 @@
   "toProfilePage": "Profile",
   "item": "item",
   "currencySelectLabel": "Select currency",
-  "countrySelectLabel": "Select country"
+  "countrySelectLabel": "Select country",
+  "noComments": "No comments"
 }

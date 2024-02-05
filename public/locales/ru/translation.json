@@ -17,5 +17,6 @@
   "toProfilePage": "Профиль",
   "item": "item",
   "currencySelectLabel": "Укажите валюту",
-  "countrySelectLabel": "Укажите страну"
+  "countrySelectLabel": "Укажите страну",
+  "noComments": "Комментарии отсутствуют"
 }
