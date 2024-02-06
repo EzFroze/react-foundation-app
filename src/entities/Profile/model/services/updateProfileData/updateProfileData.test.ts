@@ -13,6 +13,7 @@ const userData: Profile = {
   username: "Vaspupka",
   avatar: "https://avatars.githubusercontent.com/u/43078049?v=4",
   age: 22,
+  id: "1",
 };
 
 describe("updateProfileData", () => {

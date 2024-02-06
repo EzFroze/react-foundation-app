@@ -12,15 +12,17 @@ import {
   profileReducer,
   ValidateProfileError,
 } from "entities/Profile";
-import { type FC, useCallback, useEffect } from "react";
+import { type FC, useCallback } from "react";
 import { useTranslation } from "react-i18next";
 import { useSelector } from "react-redux";
+import { useParams } from "react-router-dom";
 import { classNames } from "shared/lib/classNames/classNames";
 import { useAppDispatch } from "shared/lib/hooks/useAppDispatch/useAppDispatch";
 import {
   type ReducersList,
   useDynamicModuleLoader,
 } from "shared/lib/hooks/useDynamicModuleLoader/useDynamicModuleLoader";
+import { useInitialEffect } from "shared/lib/hooks/useInitialEffect/useInitialEffect";
 import { Text, TextTheme } from "shared/ui/Text/Text";
 import { ProfilePageHeader } from "./ProfilePageHeader/ProfilePageHeader";
 
@@ -35,6 +37,8 @@ const initialReducers: ReducersList = {
 const ProfilePage: FC<ProfilePageProps> = ({ className }) => {
   useDynamicModuleLoader({ reducers: initialReducers });
   const { t } = useTranslation("profile");
+
+  const { id } = useParams<{ id: string }>();
 
   const form = useSelector(getProfileForm);
   const isLoading = useSelector(getProfileLoading);
@@ -55,13 +59,11 @@ const ProfilePage: FC<ProfilePageProps> = ({ className }) => {
 
   const dispatch = useAppDispatch();
 
-  useEffect(() => {
-    if (__PROJECT__ === "storybook") {
-      return;
+  useInitialEffect(() => {
+    if (id) {
+      dispatch(fetchProfileData(id));
     }
-
-    dispatch(fetchProfileData());
-  }, [dispatch]);
+  });
 
   const onChangeFirstname = useCallback(
     (value?: string) => {
@@ -127,7 +129,8 @@ const ProfilePage: FC<ProfilePageProps> = ({ className }) => {
 
   const validateErrorsText = validateErrors?.length
     ? validateErrors.map((err) => (
-      <Text
+        // eslint-disable-next-line react/jsx-indent
+        <Text
           key={err}
           text={validateErrorsTranslations[err]}
           theme={TextTheme.ERROR}

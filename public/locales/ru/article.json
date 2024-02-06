@@ -1,5 +1,7 @@
 {
   "articleNotFound": "Статья не найдена",
   "articleErrorLoading": "Произошла ошибка при загрузке статьи.",
-  "comments": "Комментарии"
+  "comments": "Комментарии",
+  "enterComment": "Введите текст комментария",
+  "sendComment": "Отправить"
 }

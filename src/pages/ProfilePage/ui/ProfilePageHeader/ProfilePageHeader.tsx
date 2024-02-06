@@ -1,8 +1,10 @@
 import {
+  getProfileData,
   getProfileReadonly,
   profileActions,
   updateProfileData,
 } from "entities/Profile";
+import { getUserAuthData } from "entities/User";
 import { type FC, useCallback } from "react";
 import { useTranslation } from "react-i18next";
 import { useSelector } from "react-redux";
@@ -20,6 +22,10 @@ export const ProfilePageHeader: FC<ProfilePageHeaderProps> = ({
   className,
 }) => {
   const { t } = useTranslation("profile");
+
+  const authData = useSelector(getUserAuthData);
+  const profileData = useSelector(getProfileData);
+  const canEdit = authData?.id === profileData?.id;
 
   const readonly = useSelector(getProfileReadonly);
 
@@ -40,28 +46,30 @@ export const ProfilePageHeader: FC<ProfilePageHeaderProps> = ({
   return (
     <div className={classNames(styles.ProfilePageHeader, {}, [className])}>
       <Text title={t("profileTitle")} />
-      {readonly ? (
-        <Button
-          theme={ButtonTheme.OUTLINE}
-          className={styles.editBtn}
-          onClick={onClickEditProfile}
-        >
-          {t("profileEdit")}
-        </Button>
-      ) : (
-        <>
+      {canEdit ? (
+        readonly ? (
           <Button
-            theme={ButtonTheme.OUTLINE_RED}
+            theme={ButtonTheme.OUTLINE}
             className={styles.editBtn}
-            onClick={onClickCancelEditProfile}
+            onClick={onClickEditProfile}
           >
-            {t("profileEditCancel")}
+            {t("profileEdit")}
           </Button>
-          <Button theme={ButtonTheme.OUTLINE} onClick={onsClickSaveProfile}>
-            {t("profileEditSave")}
-          </Button>
-        </>
-      )}
+        ) : (
+          <>
+            <Button
+              theme={ButtonTheme.OUTLINE_RED}
+              className={styles.editBtn}
+              onClick={onClickCancelEditProfile}
+            >
+              {t("profileEditCancel")}
+            </Button>
+            <Button theme={ButtonTheme.OUTLINE} onClick={onsClickSaveProfile}>
+              {t("profileEditSave")}
+            </Button>
+          </>
+        )
+      ) : null}
     </div>
   );
 };

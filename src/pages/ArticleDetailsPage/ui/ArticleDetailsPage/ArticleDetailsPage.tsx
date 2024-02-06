@@ -1,7 +1,9 @@
 import { ArticleDetails } from "entities/Article";
 import { CommentList } from "entities/Comment";
+import { AddCommentForm } from "features/addCommentForm";
+import { addCommentForArticle } from "pages/ArticleDetailsPage/model/services/addCommentForArticle/addCommentForArticle";
 import { fetchCommentsByArticleId } from "pages/ArticleDetailsPage/model/services/fetchCommentsByArticleId/fetchCommentsByArticleId";
-import { type FC, memo } from "react";
+import { type FC, memo, useCallback } from "react";
 import { useTranslation } from "react-i18next";
 import { useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
@@ -44,6 +46,13 @@ const ArticleDetailsPage: FC<ArticleDetailsPageProps> = ({ className }) => {
     dispatch(fetchCommentsByArticleId(id));
   });
 
+  const onSendComment = useCallback(
+    (text: string) => {
+      dispatch(addCommentForArticle(text));
+    },
+    [dispatch]
+  );
+
   if (!id) {
     return (
       <div className={classNames(styles.ArticleDetailsPage, {}, [className])}>
@@ -56,6 +65,7 @@ const ArticleDetailsPage: FC<ArticleDetailsPageProps> = ({ className }) => {
     <div className={classNames(styles.ArticleDetailsPage, {}, [className])}>
       <ArticleDetails id={id} />
       <Text title={t("comments")} className={styles.commentTitle} />
+      <AddCommentForm onSendComment={onSendComment} />
       <CommentList comments={comments} isLoading={commentsIsLoading} />
     </div>
   );
