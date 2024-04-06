@@ -3,5 +3,7 @@
   "articleErrorLoading": "Произошла ошибка при загрузке статьи.",
   "comments": "Комментарии",
   "enterComment": "Введите текст комментария",
-  "sendComment": "Отправить"
+  "sendComment": "Отправить",
+  "articleReadMore": "Читать далее...",
+  "backToList": "Назад к списку"
 }

@@ -1,12 +1,11 @@
 import { ArticleDetails } from "entities/Article";
 import { CommentList } from "entities/Comment";
 import { AddCommentForm } from "features/addCommentForm";
-import { addCommentForArticle } from "pages/ArticleDetailsPage/model/services/addCommentForArticle/addCommentForArticle";
-import { fetchCommentsByArticleId } from "pages/ArticleDetailsPage/model/services/fetchCommentsByArticleId/fetchCommentsByArticleId";
 import { type FC, memo, useCallback } from "react";
 import { useTranslation } from "react-i18next";
 import { useSelector } from "react-redux";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
+import { RoutePath } from "shared/config/routeConfig/routeConfig";
 import { classNames } from "shared/lib/classNames/classNames";
 import { useAppDispatch } from "shared/lib/hooks/useAppDispatch/useAppDispatch";
 import {
@@ -14,8 +13,11 @@ import {
   useDynamicModuleLoader,
 } from "shared/lib/hooks/useDynamicModuleLoader/useDynamicModuleLoader";
 import { useInitialEffect } from "shared/lib/hooks/useInitialEffect/useInitialEffect";
+import { Button, ButtonTheme } from "shared/ui/Button/Button";
 import { Text } from "shared/ui/Text/Text";
 import { getArticleCommentsIsLoading } from "../../model/selectors/comments";
+import { addCommentForArticle } from "../../model/services/addCommentForArticle/addCommentForArticle";
+import { fetchCommentsByArticleId } from "../../model/services/fetchCommentsByArticleId/fetchCommentsByArticleId";
 import {
   articleDetailsCommentReducer,
   getArticleComments,
@@ -53,6 +55,12 @@ const ArticleDetailsPage: FC<ArticleDetailsPageProps> = ({ className }) => {
     [dispatch]
   );
 
+  const navigate = useNavigate();
+
+  const onBackToList = useCallback(() => {
+    navigate(RoutePath.articles);
+  }, [navigate]);
+
   if (!id) {
     return (
       <div className={classNames(styles.ArticleDetailsPage, {}, [className])}>
@@ -62,12 +70,17 @@ const ArticleDetailsPage: FC<ArticleDetailsPageProps> = ({ className }) => {
   }
 
   return (
-    <div className={classNames(styles.ArticleDetailsPage, {}, [className])}>
-      <ArticleDetails id={id} />
-      <Text title={t("comments")} className={styles.commentTitle} />
-      <AddCommentForm onSendComment={onSendComment} />
-      <CommentList comments={comments} isLoading={commentsIsLoading} />
-    </div>
+    <>
+      <Button theme={ButtonTheme.OUTLINE} onClick={onBackToList}>
+        {t("backToList")}
+      </Button>
+      <div className={classNames(styles.ArticleDetailsPage, {}, [className])}>
+        <ArticleDetails id={id} />
+        <Text title={t("comments")} className={styles.commentTitle} />
+        <AddCommentForm onSendComment={onSendComment} />
+        <CommentList comments={comments} isLoading={commentsIsLoading} />
+      </div>
+    </>
   );
 };
 
