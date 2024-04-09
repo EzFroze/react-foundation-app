@@ -23,6 +23,7 @@ import {
   useDynamicModuleLoader,
 } from "shared/lib/hooks/useDynamicModuleLoader/useDynamicModuleLoader";
 import { useInitialEffect } from "shared/lib/hooks/useInitialEffect/useInitialEffect";
+import { Page } from "shared/ui/Page/Page";
 import { Text, TextTheme } from "shared/ui/Text/Text";
 import { ProfilePageHeader } from "./ProfilePageHeader/ProfilePageHeader";
 
@@ -139,24 +140,26 @@ const ProfilePage: FC<ProfilePageProps> = ({ className }) => {
     : null;
 
   return (
-    <div className={classNames("", {}, [className])}>
-      <ProfilePageHeader />
-      {validateErrorsText}
-      <ProfileCard
-        data={form}
-        isLoading={isLoading}
-        error={error}
-        onChangeFirstname={onChangeFirstname}
-        onChangeLastname={onChangeLastname}
-        onChangeAge={onChangeAge}
-        onChangeCity={onChangeCity}
-        onChangeAvatar={onChangeAvatar}
-        onChangeUsername={onChangeUsername}
-        onChangeCurrency={onChangeCurrency}
-        onChangeCountry={onChangeCountry}
-        readonly={readonly}
-      />
-    </div>
+    <Page>
+      <div className={classNames("", {}, [className])}>
+        <ProfilePageHeader />
+        {validateErrorsText}
+        <ProfileCard
+          data={form}
+          isLoading={isLoading}
+          error={error}
+          onChangeFirstname={onChangeFirstname}
+          onChangeLastname={onChangeLastname}
+          onChangeAge={onChangeAge}
+          onChangeCity={onChangeCity}
+          onChangeAvatar={onChangeAvatar}
+          onChangeUsername={onChangeUsername}
+          onChangeCurrency={onChangeCurrency}
+          onChangeCountry={onChangeCountry}
+          readonly={readonly}
+        />
+      </div>
+    </Page>
   );
 };
 

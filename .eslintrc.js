@@ -29,6 +29,7 @@ module.exports = {
     "@typescript-eslint/explicit-function-return-type": "off",
     "@typescript-eslint/strict-boolean-expressions": "off",
     "@typescript-eslint/no-empty-interface": "warn",
+    "@typescript-eslint/no-invalid-void-type": "warn",
     "@typescript-eslint/space-before-function-paren": [
       "error",
       {

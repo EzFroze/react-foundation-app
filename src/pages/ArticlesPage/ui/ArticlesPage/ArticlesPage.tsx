@@ -12,12 +12,13 @@ import {
   useDynamicModuleLoader,
 } from "shared/lib/hooks/useDynamicModuleLoader/useDynamicModuleLoader";
 import { useInitialEffect } from "shared/lib/hooks/useInitialEffect/useInitialEffect";
+import { Page } from "shared/ui/Page/Page";
 import {
-  getArticlesPageError,
   getArticlesPageIsLoading,
   getArticlesPageView,
 } from "../../model/selectors/articlesPageSelectors";
 import { fetchArticlesList } from "../../model/services/fetchArticlesList/fetchArticlesList";
+import { fetchNextArticlesPage } from "../../model/services/fetchNextArticlesPage/fetchNextArticlesPage";
 import {
   articlePageActions,
   articlePageReducer,
@@ -39,8 +40,6 @@ const ArticlesPage: FC<ArticlesPageProps> = ({ className }) => {
 
   const articles = useSelector(getArticles.selectAll);
   const isLoading = useSelector(getArticlesPageIsLoading);
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const error = useSelector(getArticlesPageError);
   const view = useSelector(getArticlesPageView);
 
   const onChangeView = useCallback(
@@ -50,16 +49,27 @@ const ArticlesPage: FC<ArticlesPageProps> = ({ className }) => {
     [dispatch]
   );
 
+  const onLoadNextPart = useCallback(() => {
+    dispatch(fetchNextArticlesPage());
+  }, [dispatch]);
+
   useInitialEffect(() => {
-    dispatch(fetchArticlesList());
     dispatch(articlePageActions.initState());
+    dispatch(
+      fetchArticlesList({
+        page: 1,
+      })
+    );
   });
 
   return (
-    <div className={classNames(styles.ArticlesPage, {}, [className])}>
+    <Page
+      onScrollEnd={onLoadNextPart}
+      className={classNames(styles.ArticlesPage, {}, [className])}
+    >
       <ArticleViewSelector view={view} onViewClick={onChangeView} />
       <ArticleList view={view} articles={articles} isLoading={isLoading} />
-    </div>
+    </Page>
   );
 };
 

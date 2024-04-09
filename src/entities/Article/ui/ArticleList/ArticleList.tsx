@@ -14,25 +14,6 @@ interface ArticleListProps {
 
 export const ArticleList: FC<ArticleListProps> = memo(
   ({ className, articles, isLoading, view = ArticleView.SMALL }) => {
-    if (isLoading) {
-      return (
-        <div
-          className={classNames(styles.ArticleList, {}, [
-            className,
-            styles[view],
-          ])}
-        >
-          {new Array(view === ArticleView.SMALL ? 9 : 3).fill(0).map((_, i) => (
-            <ArticleListItemSkeleton
-              view={view}
-              key={i}
-              className={styles.card}
-            />
-          ))}
-        </div>
-      );
-    }
-
     const renderArticle = (article: Article) => {
       return (
         <ArticleListItem
@@ -52,6 +33,19 @@ export const ArticleList: FC<ArticleListProps> = memo(
         ])}
       >
         {articles.length > 0 ? articles.map(renderArticle) : null}
+        {isLoading ? (
+          <>
+            {new Array(view === ArticleView.SMALL ? 9 : 3)
+              .fill(0)
+              .map((_, i) => (
+                <ArticleListItemSkeleton
+                  view={view}
+                  key={i}
+                  className={styles.card}
+                />
+              ))}
+          </>
+        ) : null}
       </div>
     );
   }

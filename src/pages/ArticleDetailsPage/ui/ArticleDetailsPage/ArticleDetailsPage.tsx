@@ -14,6 +14,7 @@ import {
 } from "shared/lib/hooks/useDynamicModuleLoader/useDynamicModuleLoader";
 import { useInitialEffect } from "shared/lib/hooks/useInitialEffect/useInitialEffect";
 import { Button, ButtonTheme } from "shared/ui/Button/Button";
+import { Page } from "shared/ui/Page/Page";
 import { Text } from "shared/ui/Text/Text";
 import { getArticleCommentsIsLoading } from "../../model/selectors/comments";
 import { addCommentForArticle } from "../../model/services/addCommentForArticle/addCommentForArticle";
@@ -70,7 +71,7 @@ const ArticleDetailsPage: FC<ArticleDetailsPageProps> = ({ className }) => {
   }
 
   return (
-    <>
+    <Page>
       <Button theme={ButtonTheme.OUTLINE} onClick={onBackToList}>
         {t("backToList")}
       </Button>
@@ -80,7 +81,7 @@ const ArticleDetailsPage: FC<ArticleDetailsPageProps> = ({ className }) => {
         <AddCommentForm onSendComment={onSendComment} />
         <CommentList comments={comments} isLoading={commentsIsLoading} />
       </div>
-    </>
+    </Page>
   );
 };
 
